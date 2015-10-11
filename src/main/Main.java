@@ -8,6 +8,8 @@ public class Main {
 
 		new GameJFrame();
 		
+		System.out.println("我写的俄罗斯方块");
+		
 	}
 
 }

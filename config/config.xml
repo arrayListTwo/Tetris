@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game>
+	<frame title = "俄罗斯方块" size = "7" padding = "25" width = "1162" height = "654" >
+		<lay className = "ui.LayerBackground" xStart = "0" yStart = "0" width = "1162" height = "654"></lay>
+		<lay className = "ui.LayerDataBase" xStart = "40" yStart = "32" width = "334" height = "275"></lay>
+		<lay className = "ui.LayerDisk" xStart = "40" yStart = "347" width = "334" height = "275"></lay>
+		<lay className = "ui.LayerGame" xStart = "414" yStart = "32" width = "334" height = "590"></lay>
+		<lay className = "ui.LayerSetting" xStart = "788" yStart = "32" width = "334" height = "80"></lay>
+		<lay className = "ui.LayerNext" xStart = "788" yStart = "144" width = "206" height = "94"></lay>
+		<lay className = "ui.LayerLevel" xStart = "994" yStart = "144" width = "128" height = "94"></lay>
+		<lay className = "ui.LayerPoint" xStart = "788" yStart = "272" width = "334" height = "136"></lay>
+		<lay className = "ui.LayerAbout" xStart = "788" yStart = "440" width = "334" height = "182"></lay>
+	</frame>
+	<system>
+	</system>
+	<data>
+	</data>
+</game>

@@ -18,7 +18,7 @@ public class PlayControl extends KeyAdapter {
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		
+		gameControl.print();
 	}
 	
 }

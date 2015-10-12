@@ -1,4 +1,4 @@
-package dto;
+package gamedto;
 
 /**
  * 游戏玩家信息

@@ -1,4 +1,4 @@
-package dto;
+package gamedto;
 
 import java.awt.Point;
 import java.util.List;

@@ -22,15 +22,15 @@ public class GameJFrame extends JFrame {
 	 */
 	private static final int PADDING = GameConfig.getFRIME_CONFIG().getPADDING();
 	
-	public GameJFrame() {
+	public GameJFrame(GameJPanel panelGame) {
 		//初始化游戏窗口
-		init();
+		init(panelGame);
 	}
 
 	/**
 	 * 初始化游戏窗口，设置游戏窗口的基本信息
 	 */
-	private void init() {
+	private void init(GameJPanel panelGame) {
 		//游戏窗口的名称(配置文件中读取)
 		this.setTitle(GameConfig.getFRIME_CONFIG().getTITLE());
 		//设置框架的布局
@@ -46,7 +46,7 @@ public class GameJFrame extends JFrame {
 		//设置默认游戏窗口关闭的动作
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//设置默认JPanel
-		this.setContentPane(new GameJPanel());
+		this.setContentPane(panelGame);
 		//设置游戏窗口可见
 		this.setVisible(true);
 	}

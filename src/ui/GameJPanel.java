@@ -12,6 +12,7 @@ import config.GameConfig;
 import config.LayerConfig;
 import control.GameControl;
 import control.PlayControl;
+import main.Main;
 
 /**
  * 游戏面板，用户绘制图形
@@ -35,7 +36,7 @@ public class GameJPanel extends JPanel {
 	}
 		
 	private void initComponent() {
-		this.addKeyListener(new PlayControl(new GameControl(this)));
+		this.addKeyListener(Main.playControl);
 	}
 
 	/**

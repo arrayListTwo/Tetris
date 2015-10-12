@@ -59,7 +59,7 @@ public class GameConfig {
 		Element dataConfigOfElement = game.element("data");
 		//获得数据配置对象
 		DATA_CONFIG = DataConfig.getDataConfig(dataConfigOfElement);
-
+		
 	}
 
 	/**

@@ -10,9 +10,8 @@ import javax.swing.JPanel;
 
 import config.GameConfig;
 import config.LayerConfig;
-import control.GameControl;
 import control.PlayControl;
-import main.Main;
+import gamedto.GameDto;
 
 /**
  * 游戏面板，用户绘制图形
@@ -26,17 +25,30 @@ public class GameJPanel extends JPanel {
 	 */
 	private static List<Layer> LAYS;
 	
+	private GameDto gameDto = null;
 	
-	
-	public GameJPanel(){
+	public GameJPanel(GameDto gameDto){
+		//获得DTO对象
+		this.gameDto = gameDto;
 		//初始化层
 		this.initLayer();
 		//初始化组件
 		this.initComponent();
 	}
-		
+	
+	/**
+	 * 在游戏界面上安装玩家控制器
+	 * @param playControl 玩家控制器
+	 */
+	public void setGameControl(PlayControl playControl){
+		this.addKeyListener(playControl);
+	}
+	
+	/**
+	 * 初始化游戏组件
+	 */
 	private void initComponent() {
-		this.addKeyListener(Main.playControl);
+		
 	}
 
 	/**
@@ -66,6 +78,9 @@ public class GameJPanel extends JPanel {
 					| InvocationTargetException e) {
 				e.printStackTrace();
 			}
+			//为界面对象添加DTO对象
+			layer.setGameDto(this.gameDto);
+			//将创建的界面对象添加到集合中
 			LAYS.add(layer);
 		}
 	}

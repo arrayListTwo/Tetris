@@ -5,6 +5,8 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
+import gamedto.GameDto;
+
 /**
  * 窗口的基类
  * 
@@ -53,11 +55,17 @@ public class Layer{
 	 */
 	private final int WINDOW_HEIGHT;
 	
+	private GameDto gameDto;
+	
 	public Layer(int X_START, int Y_START, int WINDOW_WIDTH, int WINDOW_HEIGHT){
 		this.X_START = X_START;
 		this.Y_START = Y_START;
 		this.WINDOW_WIDTH = WINDOW_WIDTH;
 		this.WINDOW_HEIGHT = WINDOW_HEIGHT;
+	}
+	
+	protected void setGameDto(GameDto gameDto){
+		this.gameDto = gameDto;
 	}
 	
 	/**

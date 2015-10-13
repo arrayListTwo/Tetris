@@ -10,6 +10,10 @@ import java.awt.event.KeyEvent;
  */
 public class PlayControl extends KeyAdapter {
 	
+	/**
+	 * 游戏控制器，相当于一个命令中转站，
+	 * 接收玩家控制器的命令，做出动作
+	 */
 	private GameControl gameControl;
 	
 	public PlayControl(GameControl gameControl){
@@ -18,7 +22,7 @@ public class PlayControl extends KeyAdapter {
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
-		gameControl.print();
+		gameControl.print(e);
 	}
 	
 }

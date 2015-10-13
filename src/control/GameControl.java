@@ -1,5 +1,7 @@
 package control;
 
+import java.awt.event.KeyEvent;
+
 import service.GameService;
 import ui.GameJPanel;
 
@@ -14,9 +16,9 @@ public class GameControl{
 		this.gameService = gameService;
 	}
 
-	public void print() {
+	public void print(KeyEvent e) {
 		
-		
+		System.out.println(e.getKeyCode());
 		
 	}
 	

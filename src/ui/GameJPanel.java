@@ -93,6 +93,7 @@ public class GameJPanel extends JPanel {
 		for(Layer lay : LAYS){
 			lay.createWindow(g);
 		}	
+		//»ñµÃ½¹µã
 		this.requestFocus();
 	}
 

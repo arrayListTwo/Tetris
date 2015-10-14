@@ -55,7 +55,7 @@ public class Layer{
 	 */
 	private final int WINDOW_HEIGHT;
 	
-	private GameDto gameDto;
+	protected GameDto gameDto;
 	
 	public Layer(int X_START, int Y_START, int WINDOW_WIDTH, int WINDOW_HEIGHT){
 		this.X_START = X_START;

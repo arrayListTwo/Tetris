@@ -18,7 +18,7 @@ public class GameControl{
 
 	public void print(KeyEvent e) {
 		
-		System.out.println(e.getKeyCode());
+		
 		
 	}
 	

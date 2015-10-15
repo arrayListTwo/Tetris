@@ -8,6 +8,7 @@ public class GameService {
 	
 	public GameService(GameDto gameDto) {
 		this.gameDto = gameDto;
+		System.out.println("hahahah");
 	}
 
 }

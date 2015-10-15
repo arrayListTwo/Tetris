@@ -26,6 +26,7 @@ public class Main {
 		//创建一个框架（添加游戏面板）
 		new GameJFrame(gamePanel);
 		
+		
 	}
 
 }

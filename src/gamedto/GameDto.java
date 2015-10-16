@@ -1,11 +1,12 @@
 package gamedto;
 
 import java.awt.Point;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 游戏中数据对象
- * @author list
+ * @author arrayListTwo
  *
  */
 public class GameDto {
@@ -21,19 +22,14 @@ public class GameDto {
 	private List<Player> diskPlays = null;
 	
 	/**
-	 * 游戏中下落的方块
+	 *游戏中的俄罗斯方块 
 	 */
-	private List<Point> rect = null;
+	private GameAct gameAct = null;
 	
 	/**
 	 *游戏主界面的地图 
 	 */
-	private boolean[][] map = null;
-	
-	/**
-	 * 游戏中的下一个方块
-	 */
-	private List<Point> nextRect = null;
+	private boolean[][] map = new boolean[10][18];
 	
 	/**
 	 * 游戏得分
@@ -50,6 +46,7 @@ public class GameDto {
 	 */
 	private int level = 0;
 
+	public GameDto() {}
 	/**
 	 * 获取数据库记录
 	 * @return 数据库记录，存放Players对象的List集合
@@ -83,22 +80,6 @@ public class GameDto {
 	}
 
 	/**
-	 * 获得游戏中下落方块的坐标信息
-	 * @return 方块的坐标信息
-	 */
-	public List<Point> getRect() {
-		return rect;
-	}
-
-	/**
-	 * 设置游戏中下落方块的坐标信息
-	 * @param rect 方块坐标信息
-	 */
-	public void setRect(List<Point> rect) {
-		this.rect = rect;
-	}
-
-	/**
 	 * 获得游戏主界面对象
 	 * @return 游戏主界面对象
 	 */
@@ -112,22 +93,6 @@ public class GameDto {
 	 */
 	public void setMap(boolean[][] map) {
 		this.map = map;
-	}
-
-	/**
-	 * 获取下一个方块的坐标信息
-	 * @return 坐标信息
-	 */
-	public List<Point> getNextRect() {
-		return nextRect;
-	}
-
-	/**
-	 * 设置下一个方块的坐标信息
-	 * @param nextRect 坐标信息
-	 */
-	public void setNextRect(List<Point> nextRect) {
-		this.nextRect = nextRect;
 	}
 
 	/**
@@ -176,6 +141,20 @@ public class GameDto {
 	 */
 	public void setLevel(int level) {
 		this.level = level;
+	}
+	
+	/**
+	 * @return 游戏中的方块对象
+	 */
+	public GameAct getGameAct() {
+		return gameAct;
+	}
+	
+	/**
+	 * @param gameAct 设置游戏中的俄罗斯方块
+	 */
+	public void setGameAct(GameAct gameAct) {
+		this.gameAct = gameAct;
 	}
 	
 }

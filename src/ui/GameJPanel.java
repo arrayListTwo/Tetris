@@ -92,7 +92,7 @@ public class GameJPanel extends JPanel {
 		//遍历窗口对象数组
 		for(Layer lay : LAYS){
 			lay.createWindow(g);
-		}	
+		}
 		//获得焦点
 		this.requestFocus();
 	}

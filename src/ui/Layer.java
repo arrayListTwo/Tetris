@@ -5,12 +5,13 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
+import config.GameConfig;
 import gamedto.GameDto;
 
 /**
  * 窗口的基类
  * 
- * @author list
+ * @author arrayListTwo
  *
  */
 public class Layer{
@@ -23,7 +24,7 @@ public class Layer{
 	/**
 	 * 边框切图的边的宽度
 	 */
-	protected final int SIZE = 7;
+	protected final int SIZE = GameConfig.getFRIME_CONFIG().getSIZE();
 	
 	/**
 	 * 边框切图的宽度
@@ -38,22 +39,22 @@ public class Layer{
 	/**
 	 * 窗口的左上角的x坐标
 	 */
-	private final int X_START;
+	protected final int X_START;
 	
 	/**
 	 * 窗口的左上角的y坐标
 	 */
-	private final int Y_START;
+	protected final int Y_START;
 	
 	/**
 	 * 窗口的宽度
 	 */
-	private final int WINDOW_WIDTH;
+	protected final int WINDOW_WIDTH;
 	
 	/**
 	 * 窗口的高度
 	 */
-	private final int WINDOW_HEIGHT;
+	protected final int WINDOW_HEIGHT;
 	
 	protected GameDto gameDto;
 	

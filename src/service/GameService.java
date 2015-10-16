@@ -19,6 +19,7 @@ public class GameService {
 	
 	public GameService(GameDto gameDto) {
 		this.gameDto = gameDto;
+<<<<<<< HEAD
 		GameAct gameAct = new GameAct();
 		this.gameDto.setGameAct(gameAct);
 	}
@@ -61,6 +62,9 @@ public class GameService {
 				map[actpoints[i].x][actpoints[i].y] = true;
 			}
 		}
+=======
+		System.out.println("hahahah");
+>>>>>>> efdd984ada83dbf6a3cfbe313509c414e3cc057b
 	}
 
 }

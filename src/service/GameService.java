@@ -18,12 +18,17 @@ public class GameService {
 	 */
 	private GameDto gameDto;
 	
+	/**
+	 * 随机数生成器
+	 */
 	private Random random = new Random();
 	
 	public GameService(GameDto gameDto) {
 		this.gameDto = gameDto;
-		GameAct gameAct = new GameAct();
+		int actCode = random.nextInt(GameAct.getActPoints().size());
+		GameAct gameAct = new GameAct(actCode);
 		this.gameDto.setGameAct(gameAct);
+		this.gameDto.setNext(random.nextInt(GameAct.getActPoints().size()));
 	}
 
 	/**
@@ -63,7 +68,10 @@ public class GameService {
 				map[actpoints[i].x][actpoints[i].y] = true;
 			}
 		}
-		this.gameDto.getGameAct().initAct(random.nextInt(7));
+		//
+		this.gameDto.getGameAct().initAct(this.gameDto.getNext());
+		//
+		this.gameDto.setNext(random.nextInt(GameAct.getActPoints().size()));
 	}
 
 }

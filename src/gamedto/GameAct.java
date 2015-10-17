@@ -3,6 +3,7 @@ package gamedto;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author arrayListTwo
@@ -12,15 +13,23 @@ import java.util.List;
 public class GameAct {
 	
 	/**
-	 * 
+	 * 俄罗斯方块的初始坐标信息
 	 */
 	private static final List<Point[]> ACT_POINTS;
 
 	/**
-	 * 
+	 * 俄罗斯方块信息
 	 */
 	private Point[] actPoint = null;
 	
+	/**
+	 * 随机数产生器
+	 */
+	private Random random = new Random();
+	
+	/**
+	 * 俄罗斯方块的类型标识
+	 */
 	private int actCode;
 	
 	static{
@@ -34,9 +43,8 @@ public class GameAct {
 		ACT_POINTS.add(new Point[]{new Point(3,1), new Point(3,0), new Point(2,1), new Point(4,1)});
 	}
 	
-	public GameAct() {
-		//第一次创建俄罗斯方块的时候，初始化方块类型为第一种
-		this.initAct(0);
+	public GameAct(int actCode) {
+		this.initAct(actCode);
 	}
 	
 	/**
@@ -118,6 +126,13 @@ public class GameAct {
 	 */
 	public int getActCode() {
 		return actCode;
+	}
+
+	/**
+	 * @return 俄罗斯方块的初始坐标信息
+	 */
+	public static List<Point[]> getActPoints() {
+		return ACT_POINTS;
 	}
 	
 }

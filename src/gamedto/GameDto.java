@@ -27,7 +27,7 @@ public class GameDto {
 	/**
 	 *游戏主界面的地图 
 	 */
-	private boolean[][] map = new boolean[10][18];
+	private boolean[][] map = null;
 	
 	/**
 	 * 游戏得分
@@ -43,8 +43,15 @@ public class GameDto {
 	 * 游戏的级数
 	 */
 	private int level = 0;
+	
+	/**
+	 * 下一个方块
+	 */
+	private int next = 0;
 
-	public GameDto() {}
+	public GameDto() {
+		map = new boolean[10][18];
+	}
 	/**
 	 * 获取数据库记录
 	 * @return 数据库记录，存放Players对象的List集合
@@ -153,6 +160,20 @@ public class GameDto {
 	 */
 	public void setGameAct(GameAct gameAct) {
 		this.gameAct = gameAct;
+	}
+	
+	/**
+	 * @return 下一个方块类型
+	 */
+	public int getNext() {
+		return next;
+	}
+	
+	/**
+	 * @param next 下一个方块类型
+	 */
+	public void setNext(int next) {
+		this.next = next;
 	}
 	
 }

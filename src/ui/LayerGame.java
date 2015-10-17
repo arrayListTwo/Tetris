@@ -41,14 +41,15 @@ public class LayerGame extends Layer {
 	 * @param g 画笔
 	 */
 	public void drawAct(Graphics g){
-		Point[] points = this.gameDto.getGameAct().getActPoints();
+		Point[] points = this.gameDto.getGameAct().getActPoint();
+		int actCode = this.gameDto.getGameAct().getActCode();
 		for (int i = 0; i < points.length; i++) {
 			g.drawImage(IMAGE_ACT,
 					this.X_START + (points[i].x << 5) + SIZE,
 					this.Y_START + (points[i].y << 5) + SIZE,
 					(this.X_START + (points[i].x << 5)) + ACT_SIZE + SIZE,
 					(this.Y_START + (points[i].y << 5)) + ACT_SIZE + SIZE,
-					0, 0, 32, 32, null);
+					(actCode + 1) << 5, 0, ((actCode + 1) << 5) + (1 << 5), (1 << 5), null);
 		}
 		//在地图上绘制俄罗斯方块
 		this.drawMap(g);
@@ -69,7 +70,7 @@ public class LayerGame extends Layer {
 							this.Y_START + (j << 5) + SIZE,
 							(this.X_START + (i << 5)) + ACT_SIZE + SIZE,
 							(this.Y_START + (j << 5)) + ACT_SIZE + SIZE,
-							0, 0, 32, 32, null);
+							0, 0, 1 << 5, 1 << 5, null);
 			}
 		}
 		

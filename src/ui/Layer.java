@@ -56,6 +56,8 @@ public class Layer{
 	 */
 	protected final int WINDOW_HEIGHT;
 	
+	protected final int PADDING = GameConfig.getFRIME_CONFIG().getPADDING();
+	
 	protected GameDto gameDto;
 	
 	public Layer(int X_START, int Y_START, int WINDOW_WIDTH, int WINDOW_HEIGHT){

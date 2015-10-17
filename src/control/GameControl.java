@@ -36,8 +36,8 @@ public class GameControl{
 	/**
 	 * 方块向上移动
 	 */
-	public void upMove() {
-		this.gameService.upMove();
+	public void round() {
+		this.gameService.round();
 		this.gameJPanel.repaint();
 	}
 

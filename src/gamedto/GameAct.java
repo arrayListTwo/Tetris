@@ -1,6 +1,8 @@
 package gamedto;
 
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author arrayListTwo
@@ -8,61 +10,114 @@ import java.awt.Point;
  * 游戏中的俄罗斯方块
  */
 public class GameAct {
+	
+	/**
+	 * 
+	 */
+	private static final List<Point[]> ACT_POINTS;
 
 	/**
 	 * 
 	 */
-	private Point[] actPoints = null;
+	private Point[] actPoint = null;
+	
+	private int actCode;
+	
+	static{
+		ACT_POINTS = new ArrayList<Point[]>();
+		ACT_POINTS.add(new Point[]{new Point(3,0), new Point(4,0), new Point(3,1), new Point(4,1)});
+		ACT_POINTS.add(new Point[]{new Point(3,0), new Point(2,0), new Point(4,0), new Point(4,1)});
+		ACT_POINTS.add(new Point[]{new Point(3,0), new Point(2,0), new Point(4,0), new Point(2,1)});
+		ACT_POINTS.add(new Point[]{new Point(3,1), new Point(2,0), new Point(3,0), new Point(4,1)});
+		ACT_POINTS.add(new Point[]{new Point(3,1), new Point(4,0), new Point(2,1), new Point(3,0)});
+		ACT_POINTS.add(new Point[]{new Point(3,0), new Point(2,0), new Point(4,0), new Point(5,0)});
+		ACT_POINTS.add(new Point[]{new Point(3,1), new Point(3,0), new Point(2,1), new Point(4,1)});
+	}
 	
 	public GameAct() {
-		actPoints = new Point[]{
-			new Point(3,0), new Point(4,0), new Point(3,1), new Point(4,1)	
-		};
+		//第一次创建俄罗斯方块的时候，初始化方块类型为第一种
+		this.initAct(0);
+	}
+	
+	/**
+	 * @param actCode
+	 */
+	public void initAct(int actCode){
+		this.actCode = actCode;
+		Point[] tempPoint = ACT_POINTS.get(actCode);
+		actPoint = new Point[tempPoint.length];
+		for (int i = 0; i < tempPoint.length; i++) {
+			actPoint[i] = new Point(tempPoint[i].x, tempPoint[i].y);
+		}
 	}
 
 	/**
-	 * @return the actPoints
+	 * @return 
 	 */
-	public Point[] getActPoints() {
-		//利用数组映射来拷贝俄罗斯方块的坐标信息
-		Point[] actPoints = new Point[this.actPoints.length];
-		for (int i = 0; i < actPoints.length; i++) {
-			actPoints[i] = new Point(this.actPoints[i].x, this.actPoints[i].y);
-		}
-		return actPoints;
+	public Point[] getActPoint() {
+		return actPoint;
 	}
 	
 	/**
-	 * 方块移动方法
+	 * 方块移动方法，不可移动返回false，可移动返回true
 	 * @param xMove X轴偏移量
 	 * @param yMove Y轴偏移量
 	 * @return 偏移是否执行
 	 */
-	public boolean actMove(int xMove, int yMove){
-		for (int i = 0; i < actPoints.length; i++) {
-			int xPoint = actPoints[i].x + xMove;
-			int yPoint = actPoints[i].y + yMove;
-			if(!this.canMove(xPoint, yPoint)){
+	public boolean actMove(int xMove, int yMove, boolean[][] map){
+		for (int i = 0; i < actPoint.length; i++) {
+			int xPoint = actPoint[i].x + xMove;
+			int yPoint = actPoint[i].y + yMove;
+			if(!this.canMove(xPoint, yPoint, map)){
 				return false;
 			}
 		}
-		for (int j = 0; j < actPoints.length; j++) {
-			actPoints[j].x = actPoints[j].x + xMove;
-			actPoints[j].y = actPoints[j].y + yMove;
+		for (int j = 0; j < actPoint.length; j++) {
+			actPoint[j].x = actPoint[j].x + xMove;
+			actPoint[j].y = actPoint[j].y + yMove;
 		}
-		
 		return true;
 	}
 	
 	/**
-	 * @param xPoint
-	 * @param yPoint
-	 * @return
+	 * 方块的旋转
+	 * @param map 游戏主界面的地图
+	 * A.x = O.y + O.x - B.y
+       A.y = O.y - O.x + B.x
 	 */
-	private boolean canMove(int xPoint, int yPoint){
-		if((xPoint >= 0 & xPoint <= 9) & (yPoint >= 0 & yPoint <= 17))
+	public void round(boolean[][] map) {
+		
+		for (int i = 1; i < actPoint.length; i++) {
+			int xNew = actPoint[0].y + actPoint[0].x - actPoint[i].y;
+			int yNew = actPoint[0].y - actPoint[0].x + actPoint[i].x;
+			if(!this.canMove(xNew, yNew, map))
+				return;
+		}
+		for (int i = 1; i < actPoint.length; i++) {
+			int xNew = actPoint[0].y + actPoint[0].x - actPoint[i].y;
+			int yNew = actPoint[0].y - actPoint[0].x + actPoint[i].x;
+			actPoint[i].x = xNew;
+			actPoint[i].y = yNew;
+		}
+	}
+	
+	/**
+	 *是否可以移动
+	 * @param xPoint x偏移量
+	 * @param yPoint y偏移量
+	 * @return 可移动返回true，不可移动返回false
+	 */
+	private boolean canMove(int xPoint, int yPoint, boolean[][] map){
+		if(xPoint >= 0 && xPoint <= 9 && yPoint >= 0 && yPoint <= 17 && (!map[xPoint][yPoint]))
 			return true;
 		return false;
+	}
+
+	/**
+	 * @return 每一种俄罗斯方块的标识名
+	 */
+	public int getActCode() {
+		return actCode;
 	}
 	
 }

@@ -1,7 +1,5 @@
 package gamedto;
 
-import java.awt.Point;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,7 +22,7 @@ public class GameDto {
 	/**
 	 *游戏中的俄罗斯方块 
 	 */
-	private GameAct gameAct = null;
+	private GameAct gameAct;
 	
 	/**
 	 *游戏主界面的地图 

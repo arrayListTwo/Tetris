@@ -27,7 +27,7 @@ public class PlayControl extends KeyAdapter {
 			this.gameControl.leftMove();
 			break;
 		case KeyEvent.VK_UP:
-			this.gameControl.upMove();
+			this.gameControl.round();
 			break;
 		case KeyEvent.VK_RIGHT:
 			this.gameControl.rightMove();

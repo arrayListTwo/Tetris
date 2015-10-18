@@ -35,6 +35,9 @@ public class PlayControl extends KeyAdapter {
 		case KeyEvent.VK_DOWN:
 			this.gameControl.downMove();
 			break;
+		case KeyEvent.VK_W:
+			this.gameControl.test();
+			break;
 		default:
 			break;
 		}

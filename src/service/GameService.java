@@ -70,11 +70,23 @@ public class GameService {
 		int removeLine = plusExp(map);
 		//游戏共消去了多少行
 		this.gameDto.setRemoveLine(this.gameDto.getRemoveLine() + removeLine);
+		//游戏等级变化
+		this.plusLevel(this.gameDto.getRemoveLine());
 		//获得游戏数据载体中的俄罗斯方块标识
 		this.gameDto.getGameAct().initAct(this.gameDto.getNext());
 		//将下一个俄罗斯方块标识存储起来
 		this.gameDto.setNext(random.nextInt(GameAct.getActPoints().size()));
 		
+	}
+
+	/**
+	 * 游戏等级变化
+	 * @param removeLine 游戏现在的等级
+	 */
+	private void plusLevel(int removeLine) {
+		if((removeLine - (this.gameDto.getLevel() * 10)) >= 10){
+			this.gameDto.setLevel(this.gameDto.getLevel() + 1);
+		}
 	}
 
 	/**
@@ -141,6 +153,13 @@ public class GameService {
 				return false;
 		}
 		return true;
+	}
+
+	public void test() {
+		this.gameDto.setRemoveLine(this.gameDto.getRemoveLine() + 1);
+		if(this.gameDto.getRemoveLine() - (this.gameDto.getLevel() * 10) >= 10){
+			this.gameDto.setLevel(this.gameDto.getLevel() + 1);
+		}
 	}
 
 }

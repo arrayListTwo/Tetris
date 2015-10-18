@@ -56,5 +56,10 @@ public class GameControl{
 		this.gameService.downMove();
 		this.gameJPanel.repaint();
 	}
+
+	public void test() {
+		this.gameService.test();
+		this.gameJPanel.repaint();
+	}
 	
 }

@@ -2,11 +2,8 @@ package ui;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Point;
 
 import javax.swing.ImageIcon;
-
-import gamedto.GameAct;
 
 /**
  * 游戏下一个方块窗口
@@ -15,16 +12,6 @@ import gamedto.GameAct;
  */
 public class LayerNext extends Layer {
 	
-	/**
-	 * 游戏中的俄罗斯方块的源图
-	 */
-	private static final Image IMAGE_ACT = new ImageIcon("Graphics/game/rect.png").getImage();
-	
-	/**
-	 * 
-	 */
-	private final int ACT_SIZE = IMAGE_ACT.getHeight(null);
-
 	public LayerNext(int X_START, int Y_START, int WINDOW_WIDTH, int WINDOW_HEIGHT) {
 		super(X_START, Y_START, WINDOW_WIDTH, WINDOW_HEIGHT);
 	}
@@ -40,16 +27,13 @@ public class LayerNext extends Layer {
 	 * @param g
 	 */
 	private void displayGameAct(Graphics g){
+		//获得俄罗斯方块的标识
 		int actCode = this.gameDto.getNext();
-		Point[] points = GameAct.getActPoints().get(actCode);
-		for (int i = 0; i < points.length; i++) {
-			g.drawImage(IMAGE_ACT,
-					this.X_START + (points[i].x << 5) + SIZE,
-					this.Y_START + (points[i].y << 5) + SIZE,
-					(this.X_START + (points[i].x << 5)) + ACT_SIZE + SIZE,
-					(this.Y_START + (points[i].y << 5)) + ACT_SIZE + SIZE,
-					(actCode + 1) << 5, 0, ((actCode + 1) << 5) + (1 << 5), (1 << 5), null);
-		}
+		Image imageNext = new ImageIcon("Graphics/game/" + actCode + ".png").getImage();
+		int imageHeight = imageNext.getHeight(null);
+		int imageWidth = imageNext.getWidth(null);
+		g.drawImage(imageNext, this.X_START + ((this.WINDOW_WIDTH - imageWidth) >> 1) ,
+				this.Y_START + ((this.WINDOW_HEIGHT - imageHeight) >> 1), null);
 	}
 
 }

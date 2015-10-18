@@ -34,13 +34,13 @@ public class GameAct {
 	
 	static{
 		ACT_POINTS = new ArrayList<Point[]>();
-		ACT_POINTS.add(new Point[]{new Point(3,0), new Point(4,0), new Point(3,1), new Point(4,1)});
-		ACT_POINTS.add(new Point[]{new Point(3,0), new Point(2,0), new Point(4,0), new Point(4,1)});
-		ACT_POINTS.add(new Point[]{new Point(3,0), new Point(2,0), new Point(4,0), new Point(2,1)});
-		ACT_POINTS.add(new Point[]{new Point(3,1), new Point(2,0), new Point(3,0), new Point(4,1)});
-		ACT_POINTS.add(new Point[]{new Point(3,1), new Point(4,0), new Point(2,1), new Point(3,0)});
-		ACT_POINTS.add(new Point[]{new Point(3,0), new Point(2,0), new Point(4,0), new Point(5,0)});
-		ACT_POINTS.add(new Point[]{new Point(3,1), new Point(3,0), new Point(2,1), new Point(4,1)});
+		ACT_POINTS.add(new Point[]{new Point(4,0), new Point(3,0), new Point(5,0), new Point(6,0)});
+		ACT_POINTS.add(new Point[]{new Point(4,0), new Point(3,0), new Point(5,0), new Point(4,1)});
+		ACT_POINTS.add(new Point[]{new Point(3,0), new Point(4,0), new Point(5,0), new Point(3,1)});
+		ACT_POINTS.add(new Point[]{new Point(4,0), new Point(5,0), new Point(3,1), new Point(4,1)});
+		ACT_POINTS.add(new Point[]{new Point(4,0), new Point(5,0), new Point(4,1), new Point(5,1)});
+		ACT_POINTS.add(new Point[]{new Point(5,0), new Point(3,0), new Point(4,0), new Point(5,1)});
+		ACT_POINTS.add(new Point[]{new Point(4,0), new Point(3,0), new Point(4,1), new Point(5,1)});
 	}
 	
 	public GameAct(int actCode) {
@@ -116,7 +116,7 @@ public class GameAct {
 	 * @return 可移动返回true，不可移动返回false
 	 */
 	private boolean canMove(int xPoint, int yPoint, boolean[][] map){
-		if(xPoint >= 0 && xPoint <= 9 && yPoint >= 0 && yPoint <= 17 && (!map[xPoint][yPoint]))
+		if(xPoint >= 0 && xPoint <= 9 && yPoint >= 0 && yPoint <= 17 && (!map[yPoint][xPoint]))
 			return true;
 		return false;
 	}

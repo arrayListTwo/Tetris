@@ -50,7 +50,7 @@ public class GameDto {
 	private int next = 0;
 
 	public GameDto() {
-		map = new boolean[10][18];
+		map = new boolean[18][10];
 	}
 	/**
 	 * 获取数据库记录

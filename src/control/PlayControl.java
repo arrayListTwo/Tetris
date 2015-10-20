@@ -37,6 +37,8 @@ public class PlayControl extends KeyAdapter {
 			break;
 		case KeyEvent.VK_W:
 			this.gameControl.test();
+		case KeyEvent.VK_SPACE:
+			this.gameControl.decline();
 			break;
 		default:
 			break;

@@ -18,14 +18,15 @@ public class Main {
 		//创建逻辑层（连接游戏数据）
 		GameService gameService = new GameService(gameDto);
 		//创建一个中央控制器（连接游戏面板和游戏逻辑）
-		GameControl gameControl = new GameControl(gamePanel, gameService);
+		GameControl gameControl = new GameControl(gameDto, gamePanel, gameService);
+		Thread downThread = new Thread(gameControl);
+		downThread.start();
 		//创建一个玩家控制器（连接游戏控制器）
 		PlayControl playControl = new PlayControl(gameControl);
 		//安装玩家控制器
 		gamePanel.setGameControl(playControl);
 		//创建一个框架（添加游戏面板）
 		new GameJFrame(gamePanel);
-		
 		
 	}
 

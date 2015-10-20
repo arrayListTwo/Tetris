@@ -23,11 +23,6 @@ public class GameAct {
 	private Point[] actPoint = null;
 	
 	/**
-	 * 随机数产生器
-	 */
-	private Random random = new Random();
-	
-	/**
 	 * 俄罗斯方块的类型标识
 	 */
 	private int actCode;
@@ -115,7 +110,7 @@ public class GameAct {
 	 * @param yPoint y偏移量
 	 * @return 可移动返回true，不可移动返回false
 	 */
-	private boolean canMove(int xPoint, int yPoint, boolean[][] map){
+	public boolean canMove(int xPoint, int yPoint, boolean[][] map){
 		if(xPoint >= 0 && xPoint <= 9 && yPoint >= 0 && yPoint <= 17 && (!map[yPoint][xPoint]))
 			return true;
 		return false;

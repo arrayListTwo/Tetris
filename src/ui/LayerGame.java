@@ -111,6 +111,7 @@ public class LayerGame extends Layer {
 	private void drawMap(Graphics g) {
 		
 		boolean[][] map = this.gameDto.getMap();
+		int type = this.gameDto.getLevel() % 7;
 		for (int i = 0; i < map.length; i++) {
 			for (int j = 0; j < map[0].length; j++) {
 				if(map[i][j])
@@ -119,7 +120,7 @@ public class LayerGame extends Layer {
 							this.Y_START + (i << 5) + SIZE,
 							(this.X_START + (j << 5)) + ACT_SIZE + SIZE,
 							(this.Y_START + (i << 5)) + ACT_SIZE + SIZE,
-							0, 0, 1 << 5, 1 << 5, null);
+							type << 5, 0, (type + 1) << 5, 1 << 5, null);
 			}
 		}
 		

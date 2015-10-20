@@ -1,5 +1,6 @@
 package control;
 
+import gamedto.GameDto;
 import service.GameService;
 import ui.GameJPanel;
 
@@ -8,7 +9,12 @@ import ui.GameJPanel;
  * @author arrayListTwo
  *
  */
-public class GameControl{
+public class GameControl implements Runnable{
+	
+	/**
+	 * 游戏数据载体
+	 */
+	private GameDto gameDto;
 	
 	/**
 	 * 游戏界面层
@@ -19,8 +25,11 @@ public class GameControl{
 	 * 游戏逻辑层
 	 */
 	private GameService gameService;
+	
+	private boolean isStart = true;
 
-	public GameControl(GameJPanel gamePanel, GameService gameService) {
+	public GameControl(GameDto gameDto ,GameJPanel gamePanel, GameService gameService) {
+		this.gameDto = gameDto;
 		this.gameJPanel = gamePanel;
 		this.gameService = gameService;
 	}
@@ -57,6 +66,26 @@ public class GameControl{
 		this.gameJPanel.repaint();
 	}
 
+	public void decline(){
+		this.gameService.decline();
+	}
+	
+	@Override
+	public void run() {
+		while(this.isStart){
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			this.downMove();
+		}
+	}
+	
+	private void changeStart(){
+		this.isStart = !isStart;
+	}
+	
 	public void test() {
 		this.gameService.test();
 		this.gameJPanel.repaint();

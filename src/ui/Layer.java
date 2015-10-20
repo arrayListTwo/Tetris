@@ -22,6 +22,36 @@ public class Layer{
 	protected final static Image IMAGE_BORDER = new ImageIcon("Graphics/window/Window.png").getImage();
 	
 	/**
+	 * 等级图片对象
+	 */
+	protected static final Image IMAGE_LEVEL = new ImageIcon("Graphics/string/level.png").getImage();
+
+	/**
+	 * 数字图片对象
+	 */
+	protected static final Image IMAGE_NUM = new ImageIcon("Graphics/string/num.png").getImage();
+	
+	/**
+	 * 等级图片的宽度
+	 */
+	protected static final int IMAGE_LEVEL_W = IMAGE_LEVEL.getWidth(null);
+	
+	/**
+	 * 等级图片的高度
+	 */
+	protected static final int IMAGE_LEVEL_H = IMAGE_LEVEL.getHeight(null);
+	
+	/**
+	 * 每一个数字的宽度
+	 */
+	protected static final int IMAGE_NUM_W = IMAGE_NUM.getWidth(null) / 10;
+	
+	/**
+	 * 每一个数字的高度
+	 */
+	protected static final int IMAGE_NUM_H = IMAGE_NUM.getHeight(null);
+	
+	/**
 	 * 边框切图的边的宽度
 	 */
 	protected final int SIZE = GameConfig.getFRIME_CONFIG().getSIZE();
@@ -100,6 +130,26 @@ public class Layer{
 		//下边部分
 		g.drawImage(IMAGE_BORDER, X_START + SIZE, Y_START + WINDOW_HEIGHT - SIZE, X_START + WINDOW_WIDTH - SIZE, Y_START + WINDOW_HEIGHT,
 				SIZE, BORDER_HEIGHT - SIZE, BORDER_WIDTH - SIZE, BORDER_HEIGHT, null);
+	}
+	
+	/**
+	 * 右对齐打印数字
+	 * @param x 相对X坐标值
+	 * @param y 相对Y坐标值
+	 * @param num 打印出来的数字
+	 * @param maxcount 打印出数字的最大位数
+	 * @param g 画笔
+	 */
+	protected void drawNum(int x, int y, int num, int maxcount, Graphics g) {
+		String numString = Integer.toString(num);
+		for (int i = 0; i < maxcount; i++) {
+			if(maxcount - i <= numString.length()){
+				int bit = numString.charAt(numString.length() - maxcount + i) - '0';
+				g.drawImage(IMAGE_NUM, this.X_START + this.SIZE + x + i * IMAGE_NUM_W, this.Y_START + this.SIZE + y,
+						this.X_START + this.SIZE + x + (i + 1) * IMAGE_NUM_W, this.Y_START + this.SIZE + y + IMAGE_NUM.getHeight(null),
+						bit * IMAGE_NUM_W, 0, (bit + 1) * IMAGE_NUM_W, IMAGE_NUM_H, null);
+			}
+		}
 	}
 	
 }

@@ -32,7 +32,8 @@ public class LayerBackground extends Layer{
 	//TODO ±³¾°¹Ì¶¨
 	@Override
 	protected void createWindow(Graphics g) {
-		g.drawImage(BACKGROUND[5], 0, 0, GameConfig.getFRIME_CONFIG().getWIDTH(), GameConfig.getFRIME_CONFIG().getHEIGHT(), null);
+		int times = this.gameDto.getLevel() % BACKGROUND.length;
+		g.drawImage(BACKGROUND[times], 0, 0, GameConfig.getFRIME_CONFIG().getWIDTH(), GameConfig.getFRIME_CONFIG().getHEIGHT(), null);
 	}
 
 }

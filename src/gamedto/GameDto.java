@@ -1,6 +1,8 @@
 package gamedto;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 游戏中数据对象
@@ -48,9 +50,19 @@ public class GameDto {
 	 * 下一个方块
 	 */
 	private int next = 0;
+	
+	/**
+	 * 消去的行数对应的分数
+	 */
+	private Map<Integer, Integer> linePoint;
 
 	public GameDto() {
 		map = new boolean[18][10];
+		linePoint = new HashMap<Integer, Integer>(4);
+		linePoint.put(1, 10);
+		linePoint.put(2, 30);
+		linePoint.put(3, 50);
+		linePoint.put(4, 80);
 	}
 	/**
 	 * 获取数据库记录
@@ -174,6 +186,9 @@ public class GameDto {
 	 */
 	public void setNext(int next) {
 		this.next = next;
+	}
+	public Map<Integer, Integer> getLinePoint() {
+		return linePoint;
 	}
 	
 }

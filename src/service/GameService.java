@@ -14,7 +14,7 @@ import gamedto.GameDto;
 public class GameService {
 	
 	/**
-	 * 
+	 * 数据对象载体
 	 */
 	private GameDto gameDto;
 	
@@ -56,11 +56,12 @@ public class GameService {
 
 	/**
 	 * 向下移动
+	 * @return 
 	 */
-	public void downMove() {
+	public boolean downMove() {
 		//判断俄罗斯方块是否可以移动
 		if(this.gameDto.getGameAct().actMove(0, 1, this.gameDto.getMap())){
-			return;
+			return true;
 		}
 		//获得游戏地图对象
 		boolean[][] map = this.gameDto.getMap();
@@ -68,6 +69,8 @@ public class GameService {
 		this.displayGameAct(map);
 		//消去的行数
 		int removeLine = plusExp(map);
+		//游戏加分
+		this.plusPoint(removeLine);
 		//游戏共消去了多少行
 		this.gameDto.setRemoveLine(this.gameDto.getRemoveLine() + removeLine);
 		//游戏等级变化
@@ -76,7 +79,21 @@ public class GameService {
 		this.gameDto.getGameAct().initAct(this.gameDto.getNext());
 		//将下一个俄罗斯方块标识存储起来
 		this.gameDto.setNext(random.nextInt(GameAct.getActPoints().size()));
-		
+		return false;
+	}
+	
+	public void decline(){
+		while(this.downMove());
+	}
+
+	/**
+	 * 游戏加分
+	 * @param removeLine 此次消去了多少行
+	 */
+	private void plusPoint(int removeLine) {
+		if(removeLine == 0)
+			return;
+		this.gameDto.setPoint(this.gameDto.getPoint() + this.gameDto.getLinePoint().get(removeLine));
 	}
 
 	/**
@@ -84,7 +101,7 @@ public class GameService {
 	 * @param removeLine 游戏现在的等级
 	 */
 	private void plusLevel(int removeLine) {
-		if((removeLine - (this.gameDto.getLevel() * 10)) >= 10){
+		if((removeLine - (this.gameDto.getLevel() * 20)) >= 20){
 			this.gameDto.setLevel(this.gameDto.getLevel() + 1);
 		}
 	}
@@ -157,9 +174,10 @@ public class GameService {
 
 	public void test() {
 		this.gameDto.setRemoveLine(this.gameDto.getRemoveLine() + 1);
-		if(this.gameDto.getRemoveLine() - (this.gameDto.getLevel() * 10) >= 10){
+		if(this.gameDto.getRemoveLine() - (this.gameDto.getLevel() * 20) >= 20){
 			this.gameDto.setLevel(this.gameDto.getLevel() + 1);
 		}
+		this.gameDto.setPoint(this.gameDto.getPoint() + this.gameDto.getLinePoint().get(1));
 	}
 
 }

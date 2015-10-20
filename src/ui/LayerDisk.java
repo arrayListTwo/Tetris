@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 
 /**
  * ±¾µØ´ÅÅÌ´°¿Ú
- * @author list
+ * @author arrayListTwo
  *
  */
 public class LayerDisk extends LayerData {
@@ -21,7 +21,7 @@ public class LayerDisk extends LayerData {
 	@Override
 	protected void createWindow(Graphics g) {
 		super.createWindow(g);
-		g.drawImage(IMAGE_DISK, this.X_START + PADDING, this.Y_START + PADDING, null);
+		g.drawImage(IMAGE_DISK, this.X_START + PADDING, this.Y_START + (SIZE << 1), null);
 	}
 
 }

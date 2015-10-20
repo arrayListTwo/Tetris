@@ -162,7 +162,7 @@ public class GameService {
 	 * 判断此行是否可以消去
 	 * @param row 行
 	 * @param map 游戏地图
-	 * @return
+	 * @return true代表可以消去一行，false代表不可消行
 	 */
 	private boolean isCanRemoveLine(int row, boolean[][] map) {
 		for (int column = 0; column < map[0].length; column++) {
@@ -173,10 +173,13 @@ public class GameService {
 	}
 
 	public void test() {
+		//消行加一
 		this.gameDto.setRemoveLine(this.gameDto.getRemoveLine() + 1);
+		//判断等级是否加一
 		if(this.gameDto.getRemoveLine() - (this.gameDto.getLevel() * 20) >= 20){
 			this.gameDto.setLevel(this.gameDto.getLevel() + 1);
 		}
+		//增加分数
 		this.gameDto.setPoint(this.gameDto.getPoint() + this.gameDto.getLinePoint().get(1));
 	}
 

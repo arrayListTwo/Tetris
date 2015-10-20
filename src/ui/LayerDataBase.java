@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 
 /**
  * Êý¾Ý¿â´°¿Ú
- * @author list
+ * @author arrayListTwo
  *
  */
 public class LayerDataBase extends LayerData {
@@ -21,7 +21,9 @@ public class LayerDataBase extends LayerData {
 	@Override
 	protected void createWindow(Graphics g) {
 		super.createWindow(g);
-		g.drawImage(IMAGE_DB, this.X_START + PADDING, this.Y_START + PADDING, null);
+		g.drawImage(IMAGE_DB, this.X_START + PADDING, this.Y_START + (SIZE << 1), null);
 	}
+	
+	
 	
 }

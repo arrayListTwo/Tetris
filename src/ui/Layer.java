@@ -1,5 +1,6 @@
 package ui;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -30,6 +31,21 @@ public class Layer{
 	 * 数字图片对象
 	 */
 	protected static final Image IMAGE_NUM = new ImageIcon("Graphics/string/num.png").getImage();
+	
+	/**
+	 * 经验值槽对象
+	 */
+	private static final Image IMAGE_RECT = new ImageIcon("Graphics/window/rect.png").getImage();
+	
+	/**
+	 * 经验值槽图像的高度
+	 */
+	private static final int IMAGE_RECT_H = IMAGE_RECT.getHeight(null);
+	
+	/**
+	 * 经验值槽图像的宽度
+	 */
+	private static final int IMAGE_RECT_W = IMAGE_RECT.getWidth(null);
 	
 	/**
 	 * 等级图片的宽度
@@ -86,8 +102,14 @@ public class Layer{
 	 */
 	protected final int WINDOW_HEIGHT;
 	
+	/**
+	 * 向下填充，形成一个美观的边距
+	 */
 	protected final int PADDING = GameConfig.getFRIME_CONFIG().getPADDING();
 	
+	/**
+	 * 游戏数据载体
+	 */
 	protected GameDto gameDto;
 	
 	public Layer(int X_START, int Y_START, int WINDOW_WIDTH, int WINDOW_HEIGHT){
@@ -150,6 +172,26 @@ public class Layer{
 						bit * IMAGE_NUM_W, 0, (bit + 1) * IMAGE_NUM_W, IMAGE_NUM_H, null);
 			}
 		}
+	}
+	
+	/**
+	 * 绘制值槽
+	 * @param x 值槽起始的相对X坐标
+	 * @param y 值槽起始的相对Y坐标
+	 * @param width 值槽的宽度
+	 * @param height 值槽的高度
+	 * @param g 画笔
+	 */
+	protected void drawExpRect(int x, int y, int width, int height,Graphics g) {
+		g.setColor(Color.WHITE);
+		g.fillRect(this.X_START + x, this.Y_START + y, width, height);
+		g.setColor(Color.BLACK);
+		g.fillRect(this.X_START + x + 1, this.Y_START + y + 1, width - 2, height - 2);
+		//经验值槽所截图片的比例
+		double status = (this.gameDto.getRemoveLine() - this.gameDto.getLevel() * 20) / 20.0;
+		g.drawImage(IMAGE_RECT, this.X_START + this.PADDING + 1, this.Y_START + y + 1,
+				this.X_START + this.PADDING + (int)(status * (width - 2)), this.Y_START + y + height - 2,
+				(int)(status * IMAGE_RECT_W), 0, (int)(status * IMAGE_RECT_W + 1), IMAGE_RECT_H, null);
 	}
 	
 }

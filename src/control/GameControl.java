@@ -66,8 +66,12 @@ public class GameControl implements Runnable{
 		this.gameJPanel.repaint();
 	}
 
+	/**
+	 * к╡╪Добрф
+	 */
 	public void decline(){
 		this.gameService.decline();
+		this.gameJPanel.repaint();
 	}
 	
 	@Override

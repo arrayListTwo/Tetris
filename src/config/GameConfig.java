@@ -67,21 +67,21 @@ public class GameConfig {
 	}
 
 	/**
-	 * @return 界面配置对象
+	 * @return 获得界面配置对象
 	 */
 	public static FrameConfig getFRIME_CONFIG() {
 		return FRIME_CONFIG;
 	}
 
 	/**
-	 * @return 系统配置对象
+	 * @return 获得系统配置对象
 	 */
 	public static SystemConfig getSYSTEM_CONFIG() {
 		return SYSTEM_CONFIG;
 	}
 
 	/**
-	 * @return 数据配置对象
+	 * @return 获得数据配置对象
 	 */
 	public static DataConfig getDATA_CONFIG() {
 		return DATA_CONFIG;

@@ -44,7 +44,10 @@ public class GameService {
 	 * Ðý×ª
 	 */
 	public void round() {
-		this.gameDto.getGameAct().round(this.gameDto.getMap());
+		if(this.gameDto.getGameAct().getActCode() != 4){
+			this.gameDto.getGameAct().round(this.gameDto.getMap());
+		}
+		return;
 	}
 
 	/**

@@ -71,7 +71,7 @@ public class FrameConfig {
 		HEIGHT = Integer.parseInt(frameConfigOfElement.attributeValue("height"));
 		//取出配置文件里面的标签列表
 		@SuppressWarnings("unchecked")
-		List<Element> layerOfTemporary = frameConfigOfElement.elements("lay");
+		List<Element> layerOfTemporary = frameConfigOfElement.elements("layer");
 		//创建一个集合用于存储标签里面的值
 		List<LayerConfig> layerConfig = new ArrayList<LayerConfig>();
 		//循环遍历集合，创建LayConfig对象并添加到集合中

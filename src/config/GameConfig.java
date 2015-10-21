@@ -31,6 +31,10 @@ public class GameConfig {
 	 */
 	//TODO 数据配置
 	private static DataConfig DATA_CONFIG;
+	
+	static{
+		new GameConfig();
+	}
 
 	// 私有化其构造方法
 	private GameConfig() {
@@ -60,13 +64,6 @@ public class GameConfig {
 		//获得数据配置对象
 		DATA_CONFIG = DataConfig.getDataConfig(dataConfigOfElement);
 		
-	}
-
-	/**
-	 * 在此类一加载的时候，这个static代码块就会执行
-	 */
-	static{
-		new GameConfig();
 	}
 
 	/**

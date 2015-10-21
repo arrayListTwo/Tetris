@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <game>
 	<frame title = "俄罗斯方块" size = "7" padding = "25" width = "1162" height = "654" >
-		<lay className = "ui.LayerBackground" xStart = "0" yStart = "0" width = "1162" height = "654"></lay>
-		<lay className = "ui.LayerDataBase" xStart = "40" yStart = "32" width = "334" height = "275"></lay>
-		<lay className = "ui.LayerDisk" xStart = "40" yStart = "347" width = "334" height = "275"></lay>
-		<lay className = "ui.LayerGame" xStart = "414" yStart = "32" width = "334" height = "590"></lay>
-		<lay className = "ui.LayerSetting" xStart = "788" yStart = "32" width = "334" height = "80"></lay>
-		<lay className = "ui.LayerNext" xStart = "788" yStart = "144" width = "206" height = "94"></lay>
-		<lay className = "ui.LayerLevel" xStart = "994" yStart = "144" width = "128" height = "94"></lay>
-		<lay className = "ui.LayerPoint" xStart = "788" yStart = "272" width = "334" height = "136"></lay>
-		<lay className = "ui.LayerAbout" xStart = "788" yStart = "440" width = "334" height = "182"></lay>
+		<layer className = "ui.LayerBackground" xStart = "0" yStart = "0" width = "1162" height = "654"></layer>
+		<layer className = "ui.LayerDataBase" xStart = "40" yStart = "32" width = "334" height = "275"></layer>
+		<layer className = "ui.LayerDisk" xStart = "40" yStart = "347" width = "334" height = "275"></layer>
+		<layer className = "ui.LayerGame" xStart = "414" yStart = "32" width = "334" height = "590"></layer>
+		<layer className = "ui.LayerSetting" xStart = "788" yStart = "32" width = "334" height = "80"></layer>
+		<layer className = "ui.LayerNext" xStart = "788" yStart = "144" width = "206" height = "94"></layer>
+		<layer className = "ui.LayerLevel" xStart = "994" yStart = "144" width = "128" height = "94"></layer>
+		<layer className = "ui.LayerPoint" xStart = "788" yStart = "272" width = "334" height = "136"></layer>
+		<layer className = "ui.LayerAbout" xStart = "788" yStart = "440" width = "334" height = "182"></layer>
 	</frame>
 	<system>
+		<point round = "yes" x1 = "4" y1 = "0" x2 = "3" y2 = "0" x3 = "5" y3 = "0" x4 = "6" y6 = "0"></point>
+		<point round = "yes" x1 = "4" y1 = "0" x2 = "3" y2 = "0" x3 = "5" y3 = "0" x4 = "4" y6 = "1"></point>
+		<point round = "yes" x1 = "3" y1 = "0" x2 = "4" y2 = "0" x3 = "5" y3 = "0" x4 = "3" y6 = "1"></point>
+		<point round = "yes" x1 = "4" y1 = "0" x2 = "5" y2 = "0" x3 = "3" y3 = "1" x4 = "4" y6 = "1"></point>
+		<point round = "no" x1 = "4" y1 = "0" x2 = "5" y2 = "0" x3 = "4" y3 = "1" x4 = "5" y6 = "1"></point>
+		<point round = "yes" x1 = "5" y1 = "0" x2 = "3" y2 = "0" x3 = "4" y3 = "0" x4 = "5" y6 = "1"></point>
+		<point round = "yes" x1 = "4" y1 = "0" x2 = "3" y2 = "0" x3 = "4" y3 = "1" x4 = "5" y6 = "1"></point>
 	</system>
 	<data>
 	</data>
